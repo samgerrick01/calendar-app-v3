@@ -1,0 +1,22 @@
+{
+  "meetings": [
+    {
+      "meetingTitle": "MEETING A",
+      "meetingDate": "2022-01-13",
+      "meetingStatus": "PENDING",
+      "id": 4
+    },
+    {
+      "meetingTitle": "MEETING B",
+      "meetingDate": "2022-01-21",
+      "meetingStatus": "DONE",
+      "id": 5
+    },
+    {
+      "meetingTitle": "MEETING C",
+      "meetingDate": "2022-01-28",
+      "meetingStatus": "ON-GOING",
+      "id": 6
+    }
+  ]
+}
