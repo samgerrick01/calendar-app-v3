@@ -44,20 +44,20 @@ function CreatePage() {
         {error && (
           <h3 style={{ textAlign: "center", color: "red" }}>{error}</h3>
         )}
-        <div className="body">
+        <div className="body-create">
           <form className="meeting-input">
-            <label>Meeting Title</label>
+            <label>Meeting Title : </label>
             <input
               type="text"
+              autoFocus
               placeholder="Enter Meeting Title"
-              id="meeting"
               name="meetingTitle"
               value={meetingTitle}
               onChange={handleInputChange}
             />
             <br />
             <br />
-            <label>Meeting Date</label>
+            <label>Meeting Date : </label>
             <input
               type="date"
               name="meetingDate"
@@ -66,7 +66,7 @@ function CreatePage() {
             />
             <br />
             <br />
-            <label>Meeting Status</label>
+            <label>Meeting Status : </label>
             <select
               name="meetingStatus"
               value={meetingStatus}

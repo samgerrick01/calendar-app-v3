@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   deleteMeetings,
   getSingleMeeting,
-  loadMeetings,
   updateMeeting,
 } from "../redux/action/action";
 import { useDispatch, useSelector } from "react-redux";
@@ -68,11 +67,12 @@ function UpdatePage() {
         {error && (
           <h3 style={{ textAlign: "center", color: "red" }}>{error}</h3>
         )}
-        <div className="body">
+        <div className="body-create">
           <form className="meeting-input">
-            <label>Meeting Title</label>
+            <label>Meeting Title : </label>
             <input
               type="text"
+              autoFocus
               placeholder="Enter Meeting Title"
               id="meeting"
               name="meetingTitle"
@@ -81,7 +81,7 @@ function UpdatePage() {
             />
             <br />
             <br />
-            <label>Meeting Date</label>
+            <label>Meeting Date : </label>
             <input
               type="date"
               name="meetingDate"
@@ -90,7 +90,7 @@ function UpdatePage() {
             />
             <br />
             <br />
-            <label>Meeting Status</label>
+            <label>Meeting Status : </label>
             <select
               name="meetingStatus"
               value={meetingStatus || ""}

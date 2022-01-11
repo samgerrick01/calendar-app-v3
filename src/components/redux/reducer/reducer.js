@@ -22,7 +22,6 @@ const meetingsReducer = (state = initialState, action) => {
         loading: false,
       };
     case types.GETSINGLE_MEETING:
-    case types.SEARCH_MEETING:
       return {
         ...state,
         meeting: action.payload,
