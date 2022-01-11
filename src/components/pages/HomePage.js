@@ -3,6 +3,7 @@ import "../style/Page.css";
 import { useSelector, useDispatch } from "react-redux";
 import { loadMeetings } from "../redux/action/action";
 import { useNavigate, Link } from "react-router-dom";
+import { FaRegCalendarPlus } from "react-icons/fa";
 
 function HomePage() {
   const { meetings } = useSelector((state) => ({ ...state.data }));
@@ -55,7 +56,9 @@ function HomePage() {
         </div>
         <div className="footer">
           <Link to="/add">
-            <button>Add</button>
+            <button>
+              <FaRegCalendarPlus />
+            </button>
           </Link>
         </div>
       </div>

@@ -1,28 +1,22 @@
 {
   "meetings": [
     {
-      "id": "pK3RXIy9HmwTZURJU-SLX",
+      "id": "9pNCLNGxj5SflzzagyZTF",
       "meetingTitle": "MEETING A",
-      "meetingDate": "2022-01-11",
-      "meetingStatus": "PENDING"
+      "meetingDate": "2022-01-12T12:30",
+      "meetingStatus": "DONE"
     },
     {
-      "id": "9ryDqyJGTyJ0puwCHPzAG",
+      "id": "VtYL5IpIoYy656fxL3yLz",
       "meetingTitle": "MEETING B",
-      "meetingDate": "2022-01-12",
+      "meetingDate": "2022-01-12T23:27",
+      "meetingStatus": "PENDING"
+    },
+    {
+      "id": "JNj7OKwni0Mh6pPVMwf7b",
+      "meetingTitle": "MEETING SAM",
+      "meetingDate": "2022-01-14T23:56",
       "meetingStatus": "ON-GOING"
-    },
-    {
-      "id": "Ofwjre_cDy-Zx9NHIOHCO",
-      "meetingTitle": "qweqwe",
-      "meetingDate": "2022-01-07",
-      "meetingStatus": "PENDING"
-    },
-    {
-      "id": "jt5L462ulhNqLK4o1K_fi",
-      "meetingTitle": "MEETING A",
-      "meetingDate": "2022-01-14",
-      "meetingStatus": "PENDING"
     }
   ]
 }

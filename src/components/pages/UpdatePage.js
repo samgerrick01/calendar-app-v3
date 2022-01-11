@@ -60,7 +60,7 @@ function UpdatePage() {
   return (
     <div className="pageBG">
       <div className="pageContainer">
-        <div className="title-add">
+        <div className="title-update">
           <button onClick={() => navigate("/")}>Back</button>
           <h1>Update / Delete</h1>
         </div>
@@ -83,7 +83,7 @@ function UpdatePage() {
             <br />
             <label>Meeting Date : </label>
             <input
-              type="date"
+              type="datetime-local"
               name="meetingDate"
               value={meetingDate || ""}
               onChange={handleInputChange}
@@ -96,7 +96,6 @@ function UpdatePage() {
               value={meetingStatus || ""}
               onChange={handleInputChange}
             >
-              <option value="">---</option>
               <option value="PENDING">PENDING</option>
               <option value="ON-GOING">ON-GOING</option>
               <option value="DONE">DONE</option>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { addMeeting } from "../redux/action/action";
 import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
+import { FaRegCalendarCheck } from "react-icons/fa";
 
 function CreatePage() {
   //STATE
@@ -11,10 +12,10 @@ function CreatePage() {
     id: nanoid(),
     meetingTitle: "",
     meetingDate: "",
-    meetingStatus: "",
+    meetingStatus: "PENDING",
   });
   const [error, setError] = useState("");
-  const { meetingTitle, meetingDate, meetingStatus } = state;
+  const { meetingTitle, meetingDate } = state;
   let navigate = useNavigate();
   let dispatch = useDispatch();
 
@@ -26,7 +27,7 @@ function CreatePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!meetingTitle || !meetingDate || !meetingStatus) {
+    if (!meetingTitle || !meetingDate) {
       setError("Please Input the Empty Field!");
     } else {
       dispatch(addMeeting(state));
@@ -45,7 +46,7 @@ function CreatePage() {
           <h3 style={{ textAlign: "center", color: "red" }}>{error}</h3>
         )}
         <div className="body-create">
-          <form className="meeting-input">
+          <form>
             <label>Meeting Title : </label>
             <input
               type="text"
@@ -59,7 +60,7 @@ function CreatePage() {
             <br />
             <label>Meeting Date : </label>
             <input
-              type="date"
+              type="datetime-local"
               name="meetingDate"
               value={meetingDate}
               onChange={handleInputChange}
@@ -67,24 +68,13 @@ function CreatePage() {
             <br />
             <br />
             <label>Meeting Status : </label>
-            <select
-              name="meetingStatus"
-              value={meetingStatus}
-              onChange={handleInputChange}
-            >
-              <option value="">---</option>
-              <option value="PENDING">PENDING</option>
-              <option disabled value="ON-GOING">
-                ON-GOING
-              </option>
-              <option disabled value="DONE">
-                DONE
-              </option>
-            </select>
+            <label>"PENDING"</label>
           </form>
         </div>
-        <div className="footer">
-          <button onClick={handleSubmit}>Add</button>
+        <div className="footer-add">
+          <button onClick={handleSubmit}>
+            <FaRegCalendarCheck />
+          </button>
         </div>
       </div>
     </div>

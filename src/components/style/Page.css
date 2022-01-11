@@ -1,7 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
 .pageBG {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(200, 200, 200);
+  background: linear-gradient(
+    90deg,
+    rgba(48, 16, 255, 1) 0%,
+    rgba(100, 115, 255, 1) 100%
+  );
   position: fixed;
   display: flex;
   justify-content: center;
@@ -16,14 +28,18 @@
 }
 
 .pageContainer {
-  width: 500px;
-  height: 500px;
   border-radius: 12px;
-  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
   padding: 25px;
+  flex-direction: column;
+  width: 520px;
+  min-height: 600px;
+  background: #161a2b;
+  text-align: center;
+  margin: 128px auto;
+  border-radius: 10px;
 }
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
@@ -36,17 +52,24 @@
   display: grid;
   grid-template-columns: 70% 30%;
   margin-top: 10px;
-  align-items: center;
 }
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   [class*="title"] {
     width: 60%;
   }
 }
+
 .pageContainer .title h1 {
   text-align: right;
   margin-right: 30px;
+  color: #fff;
+  font-size: 44px;
+}
+.pageContainer .title h1:hover {
+  color: darkorange;
+  transition: 0.5s all ease-in-out;
 }
 
 .pageContainer .title select {
@@ -67,9 +90,31 @@
   margin-top: 10px;
   align-items: center;
 }
+.pageContainer .title-update {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin-top: 10px;
+  align-items: center;
+}
 .pageContainer .title-add h1 {
   text-align: left;
+  color: #fff;
+  font-size: 44px;
   /* border: 2px solid black; */
+}
+.pageContainer .title-update h1:hover {
+  color: darkorange;
+  transition: 0.5s all ease-in-out;
+}
+.pageContainer .title-update h1 {
+  text-align: left;
+  color: #fff;
+  font-size: 44px;
+  /* border: 2px solid black; */
+}
+.pageContainer .title-add h1:hover {
+  color: darkorange;
+  transition: 0.5s all ease-in-out;
 }
 
 .pageContainer .title-add button {
@@ -83,6 +128,25 @@
   font-size: 20px;
   cursor: pointer;
 }
+.pageContainer .title-add button:hover {
+  box-shadow: 0 0px 32px rgb(26, 183, 231);
+  transition: 0.3s all ease-in-out;
+}
+.pageContainer .title-update button {
+  /* border: 2px solid black; */
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: rgb(0, 89, 255);
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+.pageContainer .title-update button:hover {
+  box-shadow: 0 0px 32px rgb(26, 183, 231);
+  transition: 0.3s all ease-in-out;
+}
 
 .pageContainer .body {
   justify-content: center;
@@ -92,20 +156,32 @@
 }
 
 .pageContainer .body-create {
-  flex: 50%;
+  margin-top: 70px;
+  font-size: 1.5em;
+  /* border: 2px solid black; */
+  color: #fff;
+  text-align: left;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 1.5em;
-  border: 2px solid black;
+}
+.pageContainer .body-create input {
+  height: 50px;
+  font-size: 0.9em;
+  width: 300px;
+}
+.pageContainer .body-create select {
+  height: 50px;
+  font-size: 0.9em;
+  width: 284px;
 }
 
 .ul-list {
   list-style: none;
   display: list-item;
   float: left;
-  height: 250px;
+  height: 350px;
   overflow-y: auto;
+  margin-top: 30px;
   /* border: 2px solid black; */
 }
 
@@ -117,13 +193,58 @@
 }
 .ul-list li {
   border: 2px solid black;
-  width: 420px;
+  width: 450px;
   cursor: pointer;
   margin-bottom: 5px;
+  font-size: 1.7em;
   text-align: center;
+  align-items: center;
+  margin: 4px auto;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 118, 20, 1) 0%,
+    rgba(255, 84, 17, 1) 100%
+  );
+
+  padding: 16px;
+  border-radius: 5px;
+}
+.ul-list li:hover {
+  box-shadow: 0 0px 32px rgb(255, 0, 0);
+  transition: 0.3s all ease-in-out;
+}
+.ul-list li:nth-child(4n + 1) {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+}
+
+.ul-list li:nth-child(4n + 2) {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 12, 241, 1) 0%,
+    rgba(250, 0, 135, 1) 100%
+  );
+}
+
+.ul-list li:nth-child(4n + 3) {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
 }
 
 .pageContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.pageContainer .footer-add {
   flex: 20%;
   display: flex;
   justify-content: flex-end;
@@ -138,8 +259,27 @@
   background-color: rgb(0, 89, 255);
   color: white;
   border-radius: 50%;
-  font-size: 20px;
+  font-size: 60px;
   cursor: pointer;
+}
+.pageContainer .footer-add button:hover {
+  box-shadow: 0 0px 32px rgb(51, 156, 175);
+  transition: 0.3s all ease-in-out;
+}
+.pageContainer .footer-add button {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: none;
+  background-color: rgb(0, 89, 255);
+  color: white;
+  border-radius: 50%;
+  font-size: 60px;
+  cursor: pointer;
+}
+.pageContainer .footer-add button:hover {
+  box-shadow: 0 0px 32px rgb(0, 255, 34);
+  transition: 0.3s all ease-in-out;
 }
 
 .pageContainer .footer-update {
@@ -159,4 +299,8 @@
   border-radius: 50%;
   font-size: 20px;
   cursor: pointer;
+}
+.pageContainer .footer-update button:hover {
+  box-shadow: 0 0px 32px rgb(255, 0, 0);
+  transition: 0.3s all ease-in-out;
 }
