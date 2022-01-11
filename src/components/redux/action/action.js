@@ -23,6 +23,11 @@ const meetingDeleted = () => ({
   type: types.DELETE_MEETING,
 });
 
+const meetingSearch = (meeting) => ({
+  type: types.SEARCH_MEETING,
+  payload: meeting,
+});
+
 export const loadMeetings = () => {
   return function (dispatch) {
     axios
@@ -80,6 +85,18 @@ export const deleteMeetings = (id) => {
         console.log("resp", resp);
         dispatch(meetingDeleted());
         dispatch(getMeetings());
+      })
+      .catch((error) => console.log(error));
+  };
+};
+
+export const searchMeeting = (meeting) => {
+  return function (dispatch) {
+    axios
+      .get(`${process.env.REACT_APP_API}/${meeting}`)
+      .then((resp) => {
+        console.log("resp", resp);
+        dispatch(meetingSearch(resp.data));
       })
       .catch((error) => console.log(error));
   };

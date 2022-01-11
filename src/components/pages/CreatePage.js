@@ -3,10 +3,12 @@ import "../style/Page.css";
 import { useNavigate } from "react-router-dom";
 import { addMeeting } from "../redux/action/action";
 import { useDispatch } from "react-redux";
+import { nanoid } from "nanoid";
 
 function CreatePage() {
   //STATE
   const [state, setState] = useState({
+    id: nanoid(),
     meetingTitle: "",
     meetingDate: "",
     meetingStatus: "",
