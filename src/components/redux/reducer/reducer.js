@@ -9,6 +9,7 @@ const initialState = {
 const meetingsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_MEETINGS:
+    case types.SEARCH_MEETING:
       return {
         ...state,
         meetings: action.payload,

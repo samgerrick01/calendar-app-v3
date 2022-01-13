@@ -23,6 +23,11 @@ const meetingDeleted = () => ({
   type: types.DELETE_MEETING,
 });
 
+const searchMeeting = (meetings) => ({
+  type: types.SEARCH_MEETING,
+  payload: meetings,
+});
+
 export const loadMeetings = () => {
   return function (dispatch) {
     axios
@@ -81,6 +86,18 @@ export const deleteMeetings = (id) => {
         console.log("resp", resp);
         dispatch(meetingDeleted());
         dispatch(loadMeetings());
+      })
+      .catch((error) => console.log(error));
+  };
+};
+
+export const searchMeetings = (value) => {
+  return function (dispatch) {
+    axios
+      .get(`${process.env.REACT_APP_API}?meetingTitle_like=${value}`)
+      .then((resp) => {
+        console.log("resp", resp);
+        dispatch(searchMeeting(resp.data));
       })
       .catch((error) => console.log(error));
   };

@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "../style/Page.css";
 import { useSelector, useDispatch } from "react-redux";
-import { loadMeetings } from "../redux/action/action";
+import { loadMeetings, searchMeetings } from "../redux/action/action";
 import { useNavigate, Link } from "react-router-dom";
 import { FaRegCalendarPlus } from "react-icons/fa";
 
 function HomePage() {
   const { meetings } = useSelector((state) => ({ ...state.data }));
   const [filter, setFilter] = useState("");
+  const [value, setValue] = useState("");
   let dispatch = useDispatch();
   let navigate = useNavigate();
 
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    dispatch(searchMeetings(value));
+  };
+
+  const handleReset = () => {
+    setValue("");
+    dispatch(loadMeetings());
+  };
+
   useEffect(() => {
-    dispatch(loadMeetings(0, 4, 0));
+    dispatch(loadMeetings());
   }, []);
 
   return (
@@ -28,30 +39,45 @@ function HomePage() {
           </select>
         </div>
         <div className="body">
+          <div className="search">
+            <label className="search-label">Search : </label>
+            <input
+              className="search-input"
+              type="text"
+              value={value}
+              placeholder="Enter Meeting Title"
+              onChange={(e) => setValue(e.target.value)}
+            />
+            <button className="search-btn" onClick={handleSearch}>
+              SEARCH
+            </button>
+            <button className="reset-btn" onClick={handleReset}>
+              RESET
+            </button>
+          </div>
           <ul className="ul-list">
-            {meetings &&
-              meetings
-                .filter(
-                  (meeting) =>
-                    !filter ||
-                    meeting.meetingStatus
-                      ?.toLowerCase()
-                      ?.indexOf(filter?.toLowerCase()) >= 0
-                )
-                .map((meeting) => {
-                  return (
-                    <li
-                      key={meeting.id}
-                      onClick={() => navigate(`/update/${meeting.id}`)}
-                    >
-                      {meeting.meetingTitle}
-                      <br />
-                      {meeting.meetingDate}
-                      <br />
-                      {meeting.meetingStatus}
-                    </li>
-                  );
-                })}
+            {meetings
+              .filter(
+                (meeting) =>
+                  !filter ||
+                  meeting.meetingStatus
+                    ?.toLowerCase()
+                    ?.indexOf(filter?.toLowerCase()) >= 0
+              )
+              .map((meeting) => {
+                return (
+                  <li
+                    key={meeting.id}
+                    onClick={() => navigate(`/update/${meeting.id}`)}
+                  >
+                    {meeting.meetingTitle}
+                    <br />
+                    {meeting.meetingDate}
+                    <br />
+                    {meeting.meetingStatus}
+                  </li>
+                );
+              })}
           </ul>
         </div>
         <div className="footer">

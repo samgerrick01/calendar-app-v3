@@ -57,6 +57,7 @@ function UpdatePage() {
       setState({ ...meeting });
     }
   }, [meeting]);
+
   return (
     <div className="pageBG">
       <div className="pageContainer">
